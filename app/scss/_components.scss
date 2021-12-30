@@ -1,0 +1,114 @@
+//==================================================
+//============== COMPONENTS STYLES =================
+//==================================================
+
+.color-transition {
+  transition: color 300ms ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+    color: $cyan;
+  }
+}
+
+.card {
+  background-color: $veryDarkBlueCard;
+  border-radius: pxToRem(15);
+  font-size: pxToRem(16);
+  min-width: pxToRem(330);
+  max-width: pxToRem(350);
+  margin: pxToRem(60) pxToRem(25) 0;
+  padding: pxToRem(25);
+
+  @include media-breakpoint-up(md) {
+    margin-top: 0;
+  }
+
+  img {
+    width: 100%;
+  }
+
+  &__image {
+    position: relative;
+    margin-bottom: pxToRem(30);
+
+    img {
+      border-radius: pxToRem(10);
+    }
+
+    &:hover {
+      .card__layer {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
+
+  &__layer {
+    position: absolute;
+    border-radius: pxToRem(10);
+    background: rgba($cyanRgb, 0.5);
+
+    width: 100%;
+    height: 100%;
+
+    opacity: 0;
+    visibility: hidden;
+    cursor: pointer;
+    transition: opacity 300ms ease-in-out, visibility 300ms ease-in-out;
+  }
+
+  &__title {
+    font-size: pxToRem(22);
+    @extend .color-transition;
+  }
+
+  &__description {
+    line-height: 1.5;
+    margin: 1.5rem 0;
+
+    @include media-breakpoint-up(sm) {
+      font-size: pxToRem(18);
+    }
+  }
+
+  &__info {
+    margin-bottom: pxToRem(15);
+  }
+
+  &__price {
+    color: $cyan;
+    font-weight: 600;
+  }
+
+  &__division {
+    height: pxToRem(1);
+    background-color: $veryDarkBlueLine;
+    position: relative;
+    margin-bottom: pxToRem(15);
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: pxToRem(1);
+      background-color: $veryDarkBlueLine;
+      opacity: 0.2;
+      top: pxToRem(2);
+    }
+  }
+
+  &__author {
+    img {
+      width: pxToRem(33);
+      height: pxToRem(33);
+      border: 1px solid $white;
+      border-radius: 50%;
+    }
+
+    span {
+      color: $white;
+      @extend .color-transition;
+    }
+  }
+}

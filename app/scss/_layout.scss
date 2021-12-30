@@ -1,0 +1,38 @@
+//==================================================
+//================== LAYOUT STYLES =================
+//==================================================
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  @include media-breakpoint-up(md) {
+    align-items: center;
+  }
+}
+
+.card {
+  &__info {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__price,
+  &__timeover {
+    display: flex;
+    gap: pxToRem(5);
+  }
+
+  &__author {
+    display: flex;
+    align-items: center;
+    gap: pxToRem(18);
+  }
+
+  &__layer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

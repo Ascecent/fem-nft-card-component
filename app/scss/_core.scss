@@ -1,0 +1,119 @@
+@use "sass:math";
+
+//================================================
+//================== CORE STYLES =================
+//================================================
+
+//-----------------------------
+// FUNCTIONS
+//-----------------------------
+
+// Convert px to rem
+@function pxToRem($unit) {
+  @return math.div($unit, 16) + rem;
+}
+
+//-----------------------------
+
+//-----------------------------
+// VARIABLES
+//-----------------------------
+
+//-----------------
+// -- BREAKPOINTS
+$breakpoints: (
+  xsm: 540px,
+  sm: 576px,
+  md: 768px,
+  lg: 1024px,
+  xlg: 1400px,
+);
+//-----------------
+
+//-----------------
+// -- COLORS
+
+// Primary
+$softBlue: hsl(215, 51%, 70%);
+$cyan: hsl(178, 100%, 50%);
+$cyanRgb: rgb(0, 255, 246);
+
+// Neutral
+$veryDarkBlueMain: hsl(217, 54%, 11%);
+$veryDarkBlueCard: hsl(216, 50%, 16%);
+$veryDarkBlueLine: hsl(215, 32%, 27%);
+$white: hsl(0, 0%, 100%);
+$black: hsl(0, 0%, 0%);
+//-----------------
+
+//-----------------
+// -- FONT
+
+// Size
+$fontSizeNormal: pxToRem(18);
+
+// Family
+$fontFamily: "Outfit", sans-serif;
+
+// Weight
+$fontLight: 300;
+$fontRegular: 400;
+$fontSemiBold: 600;
+//-----------------
+
+//-----------------------------
+
+//-----------------------------
+// MIXINS
+//-----------------------------
+
+//-----------------
+// -- MEDIA QUERIES MIXINS
+
+@mixin media-breakpoint-up($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    $breakpoint-value: map-get($breakpoints, $breakpoint);
+
+    @media (min-width: $breakpoint-value) {
+      @content;
+    }
+  } @else {
+    @warn 'Invalid breakpoint: #{$breakpoint}.';
+  }
+}
+
+@mixin media-breakpoint-down($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    $breakpoint-value: map-get($breakpoints, $breakpoint);
+
+    @media (max-width: ($breakpoint-value - 1)) {
+      @content;
+    }
+  } @else {
+    @warn 'Invalid breakpoint: #{$breakpoint}.';
+  }
+}
+
+//-----------------
+
+//-----------------------------
+
+//-----------------------------
+// GLOBAL STYLES
+//-----------------------------
+
+body {
+  font: {
+    family: $fontFamily;
+    weight: $fontLight;
+    size: $fontSizeNormal;
+  }
+  color: $softBlue;
+  background-color: $veryDarkBlueMain;
+  min-height: 100vh;
+}
+
+h1 {
+  color: $white;
+  font-weight: $fontSemiBold;
+}
