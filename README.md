@@ -31,8 +31,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- [Solution URL](https://www.frontendmentor.io/solutions/ntf-card-component-with-sass-grid-flexbox-and-bem-9tc93WcUK)
+- [Live Site URL](https://ascecent.github.io/fem-nft-card-component/)
 
 ## My process
 
